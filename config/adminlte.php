@@ -259,7 +259,6 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ],
         ['header' => 'labels'],
         [
             'text'       => 'important',
