@@ -266,7 +266,7 @@ return [
         ],
         [
             'text' => 'Équipe',
-            'url' => '',
+            'url' => '/admin/team',
             'icon' => 'fas fa-users',
         ],
         [
@@ -281,19 +281,19 @@ return [
         ],
         [
             'text' => 'Newsletter',
-            'url' => '',
+            'url' => '/admin/newsletter',
             'icon' => 'fas fa-link'
         ],
         [
             'text' => 'Footer',
-            'url' => '',
+            'url' => '/admin/footer',
             'icon' => 'far fa-copyright',
         ],
 
         ['header' => 'Messages'],
         [
             'text' => 'Voir les messages',
-            'url' => '',
+            'url' => '/admin/inbox',
             'icon' => 'fas fa-envelope'
         ],
 

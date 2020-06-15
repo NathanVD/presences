@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
-use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;
+use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;use App\News_Title;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,9 @@ Route::get('/', function () {
     $contact = contact::find(1);
     $contact_titles = Contact_Title::find(1);
     $map = Contact_Map::find(1);
+    $newsletter = News_Title::find(1);
     return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials',
-    'contact','contact_titles','map'));
+    'contact','contact_titles','map','newsletter'));
 });
 
 
@@ -53,5 +55,10 @@ Route::get('/admin/contact', 'ContactController@edit')->name('contact');
 Route::post('/admin/contact/update', 'ContactController@update')->name('contact.update');
 Route::post('/admin/contact_titles/update', 'ContactController@titlesUpdate')->name('contact.titles.update');
 Route::post('/admin/contact_map/update', 'ContactController@mapUpdate')->name('contact.map.update');
-    //Messages
+
+// Admin Newsletter
+Route::get('/admin/newsletter', 'NewsletterController@edit')->name('newsletter');
+Route::post('/admin/newsletter/update', 'NewsletterController@update')->name('newsletter.update');
+
+//Messages
 Route::resource('/admin/messages', 'MessageController');
