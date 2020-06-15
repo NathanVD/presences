@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Hero_Catch; use App\Hero;
+use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,10 @@ use App\Hero_Catch; use App\Hero;
 Route::get('/', function () {
     $catch = Hero_Catch::find(1);
     $slides = Hero::all();
-    return view('home',compact('catch','slides'));
+    $about = About::find(1);
+    $about_counters = About_Counter::find(1);
+    $about_images = About_Images::find(1);
+    return view('home',compact('catch','slides','about','about_counters','about_images'));
 });
 
 
@@ -26,3 +29,10 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 // Admin Hero
 Route::post('/admin/hero/catchphrase/update', 'HeroController@catchUpdate')->name('hero.catch.update');
 Route::resource('admin/hero', 'HeroController');
+
+// Admin About
+Route::get('/admin/about', 'AboutController@edit')->name('about');
+Route::post('/admin/about/update', 'AboutController@update')->name('about.update');
+Route::post('/admin/about_images/update', 'AboutController@imagesUpdate')->name('about.images.update');
+Route::post('/admin/about_counter/update', 'AboutController@counterUpdate')->name('about.counters.update');
+

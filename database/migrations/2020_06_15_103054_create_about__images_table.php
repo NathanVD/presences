@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAboutTitlesTable extends Migration
+class CreateAboutImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateAboutTitlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('about__titles', function (Blueprint $table) {
+        Schema::create('about__images', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('img_path_1');
+            $table->string('img_path_2');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateAboutTitlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('about__titles');
+        Schema::dropIfExists('about__images');
     }
 }
