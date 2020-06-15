@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
-use App\Testimonials_Title;
+use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,11 @@ Route::get('/', function () {
     $about_images = About_Images::find(1);
     $testimonials_title = Testimonials_Title::find(1);
     $testimonials = Testimonial::all();
-    return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials'));
+    $contact = contact::find(1);
+    $contact_titles = Contact_Title::find(1);
+    $map = Contact_Map::find(1);
+    return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials',
+    'contact','contact_titles','map'));
 });
 
 
@@ -42,3 +47,11 @@ Route::post('/admin/about_counter/update', 'AboutController@counterUpdate')->nam
 // Admin Testimonials
 Route::post('/admin/testimonials/title/update', 'TestimonialController@titleUpdate')->name('testimonials.title.update');
 Route::resource('/admin/testimonials', 'TestimonialController');
+
+// Admin Contact
+Route::get('/admin/contact', 'ContactController@edit')->name('contact');
+Route::post('/admin/contact/update', 'ContactController@update')->name('contact.update');
+Route::post('/admin/contact_titles/update', 'ContactController@titlesUpdate')->name('contact.titles.update');
+Route::post('/admin/contact_map/update', 'ContactController@mapUpdate')->name('contact.map.update');
+    //Messages
+Route::resource('/admin/messages', 'MessageController');

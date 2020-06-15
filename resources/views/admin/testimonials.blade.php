@@ -10,7 +10,7 @@
   {{-- Titre --}}
     <form action="{{route('testimonials.title.update')}}" method="POST">
       @csrf
-      <div class="card card-info">
+      <div class="card card-lightblue">
 
         <div class="card-header">
           <h3 class="card-title">Titre de la section</h3>
@@ -45,6 +45,9 @@
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Liste des témoignages <a href="{{route('testimonials.create')}}" class="badge bg-success"><i class="fas fa-plus"></i></a></h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            </div>
           </div>
 
           <div class="card-body table-responsive">
@@ -105,6 +108,9 @@
 
           <div class="card-header">
             <h3 class="card-title">Lire le témoignage</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            </div>
           </div>
 
           <div class="card-body">

@@ -38,6 +38,9 @@
     <div class="card card-primary">
       <div class="card-header">
         <h3 class="card-title">Slides du carousel <a href="{{route('hero.create')}}" class="badge bg-success align-top ml-3"><i class="fas fa-plus"></i></a></h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+        </div>
       </div>
 
       <div class="card-body">

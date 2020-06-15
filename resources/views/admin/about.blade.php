@@ -9,6 +9,9 @@
 
           <div class="card-header">
             <h3 class="card-title">Présentation</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            </div>
           </div>
 
           <div class="card-body">
@@ -44,10 +47,13 @@
     <div class="col">
       <form action="{{route('about.images.update')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="card card-info">
+        <div class="card card-teal">
 
           <div class="card-header">
             <h3 class="card-title">Images</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            </div>
           </div>
 
           <div class="card-body">
@@ -91,10 +97,13 @@
   <div class="container">
     <form action="{{route('about.counters.update')}}" method="POST">
       @csrf
-      <div class="card card-info">
+      <div class="card card-lightblue">
 
         <div class="card-header">
           <h3 class="card-title">Compteurs</h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            </div>
         </div>
 
         <div class="card-body">

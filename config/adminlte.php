@@ -276,7 +276,7 @@ return [
         ],
         [
             'text' => 'Contact',
-            'url' => '',
+            'url' => '/admin/contact',
             'icon' => 'far fa-question-circle',
         ],
         [
