@@ -271,7 +271,7 @@ return [
         ],
         [
             'text' => 'Témoignages',
-            'url' => '',
+            'url' => '/admin/testimonials',
             'icon' => 'fas fa-quote-right',
         ],
         [

@@ -27,6 +27,11 @@ class HeroController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'required|string',
+            'image'=>'required|image',
+        ]);
+
         $slide = new Hero;
         
         $slide->title = request('title');
@@ -47,11 +52,18 @@ class HeroController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title'=>'required|string'
+        ]);
+
         $slide = Hero::find($id);
         
         $slide->title = request('title');
 
         if (request('image')) {
+            $request->validate([
+                'image'=>'required|image',
+            ]);
             Storage::delete($slide->img_path);
             $slide->img_path = request('image')->store('img');
         }
@@ -78,6 +90,10 @@ class HeroController extends Controller
 
     public function catchUpdate(Request $request)
     {
+        $request->validate([
+            'catch'=>'required|string',
+        ]);
+
         $catch = Hero_Catch::find(1);
         
         if (!$catch) {

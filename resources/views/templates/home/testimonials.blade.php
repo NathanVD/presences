@@ -3,73 +3,90 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 center-heading text-center colorlib-heading animate-box">
-        <h1 class="heading-big">What are the students says</h1>
-        <h2>What are the students says</h2>
+        <h1 class="heading-big">{{$testimonials_title ? $testimonials_title->title : 'What are the students says'}}</h1>
+        <h2>{{$testimonials_title ? $testimonials_title->title : 'What are the students says'}}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="testimony-flex">
-          <div class="one-fifth animate-box">
-            <span class="icon"><i class="icon-quotes-left"></i></span>
-            <div class="testimony-wrap">
-              <blockquote>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </blockquote>
-              <div class="desc">
-                <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
-                <h3>Dave Henderson</h3>
+        <div class="testimony-flex justify-content-center">
+          @if ($testimonials && $testimonials->isNotEmpty())
+            @foreach ($testimonials as $testimonial)
+              <div class="one-fifth animate-box">
+                <span class="icon"><i class="icon-quotes-left"></i></span>
+                <div class="testimony-wrap">
+                  <blockquote>
+                    <p>{{$testimonial->review}}</p>
+                  </blockquote>
+                  <div class="desc">
+                    <div class="figure-img" style="background-image: url({{asset('storage/'.$testimonial->img_path)}});"></div>
+                    <h3>{{$testimonial->name}}</h3>
+                  </div>
+                </div>
+              </div>                 
+            @endforeach
+          @else
+            <div class="one-fifth animate-box">
+              <span class="icon"><i class="icon-quotes-left"></i></span>
+              <div class="testimony-wrap">
+                <blockquote>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </blockquote>
+                <div class="desc">
+                  <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
+                  <h3>Dave Henderson</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="one-fifth animate-box">
-            <span class="icon"><i class="icon-quotes-left"></i></span>
-            <div class="testimony-wrap">
-              <blockquote>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-              </blockquote>
-              <div class="desc">
-                <div class="figure-img" style="background-image: url(images/person2.jpg);"></div>
-                <h3>Dave Henderson</h3>
+            <div class="one-fifth animate-box">
+              <span class="icon"><i class="icon-quotes-left"></i></span>
+              <div class="testimony-wrap">
+                <blockquote>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+                </blockquote>
+                <div class="desc">
+                  <div class="figure-img" style="background-image: url(images/person2.jpg);"></div>
+                  <h3>Dave Henderson</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="one-fifth animate-box">
-            <span class="icon"><i class="icon-quotes-left"></i></span>
-            <div class="testimony-wrap">
-              <blockquote>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-              </blockquote>
-              <div class="desc">
-                <div class="figure-img" style="background-image: url(images/person3.jpg);"></div>
-                <h3>Dave Henderson</h3>
+            <div class="one-fifth animate-box">
+              <span class="icon"><i class="icon-quotes-left"></i></span>
+              <div class="testimony-wrap">
+                <blockquote>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                </blockquote>
+                <div class="desc">
+                  <div class="figure-img" style="background-image: url(images/person3.jpg);"></div>
+                  <h3>Dave Henderson</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="one-fifth animate-box">
-            <span class="icon"><i class="icon-quotes-left"></i></span>
-            <div class="testimony-wrap">
-              <blockquote>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
-              </blockquote>
-              <div class="desc">
-                <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
-                <h3>Dave Henderson</h3>
+            <div class="one-fifth animate-box">
+              <span class="icon"><i class="icon-quotes-left"></i></span>
+              <div class="testimony-wrap">
+                <blockquote>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+                </blockquote>
+                <div class="desc">
+                  <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
+                  <h3>Dave Henderson</h3>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="one-fifth animate-box">
-            <span class="icon"><i class="icon-quotes-left"></i></span>
-            <div class="testimony-wrap">
-              <blockquote>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
-              </blockquote>
-              <div class="desc">
-                <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
-                <h3>Dave Henderson</h3>
-              </div>
+            <div class="one-fifth animate-box">
+              <span class="icon"><i class="icon-quotes-left"></i></span>
+              <div class="testimony-wrap">
+                <blockquote>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+                </blockquote>
+                <div class="desc">
+                  <div class="figure-img" style="background-image: url(images/person1.jpg);"></div>
+                  <h3>Dave Henderson</h3>
+                </div>
+              </div>                          
             </div>
-          </div>
+          @endif
         </div>
       </div>
     </div>

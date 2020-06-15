@@ -14585,7 +14585,7 @@ figure {
 }
 
 .contact-info-wrap-flex .con-info {
-  width: 24%;
+  width: 30%;
   background: #fff;
   padding: 1.5em;
   margin-left: 10px;
@@ -15433,5 +15433,9 @@ input[type=text] {
 
 .justify-content-center {
   justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }
 

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;
+use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
+use App\Testimonials_Title;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,9 @@ Route::get('/', function () {
     $about = About::find(1);
     $about_counters = About_Counter::find(1);
     $about_images = About_Images::find(1);
-    return view('home',compact('catch','slides','about','about_counters','about_images'));
+    $testimonials_title = Testimonials_Title::find(1);
+    $testimonials = Testimonial::all();
+    return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials'));
 });
 
 
@@ -36,3 +39,6 @@ Route::post('/admin/about/update', 'AboutController@update')->name('about.update
 Route::post('/admin/about_images/update', 'AboutController@imagesUpdate')->name('about.images.update');
 Route::post('/admin/about_counter/update', 'AboutController@counterUpdate')->name('about.counters.update');
 
+// Admin Testimonials
+Route::post('/admin/testimonials/title/update', 'TestimonialController@titleUpdate')->name('testimonials.title.update');
+Route::resource('/admin/testimonials', 'TestimonialController');

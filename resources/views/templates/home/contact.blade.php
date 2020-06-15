@@ -5,7 +5,7 @@
         <h2>Contact Information</h2>
         <div class="row">
           <div class="col-md-12">
-            <div class="contact-info-wrap-flex justify-content-center">
+            <div class="contact-info-wrap-flex justify-content-between">
               <div class="con-info">
                 <p><span><i class="icon-location-2"></i></span> 198 West 21th Street, <br> Suite 721 New York NY 10016</p>
               </div>
