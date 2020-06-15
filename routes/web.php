@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Hero_Catch; use App\Hero;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $catch = Hero_Catch::find(1);
+    $slides = Hero::all();
+    return view('home',compact('catch','slides'));
 });
+
+
+// Admin dashboard
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+// Admin Hero
+Route::post('/admin/hero/catchphrase/update', 'HeroController@catchUpdate')->name('hero.catch.update');
+Route::resource('admin/hero', 'HeroController');

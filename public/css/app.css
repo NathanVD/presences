@@ -15431,3 +15431,7 @@ input[type=text] {
   opacity: 0;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+

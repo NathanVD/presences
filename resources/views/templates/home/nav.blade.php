@@ -9,7 +9,7 @@
           <ul>
             <li class="active"><a href="/">Accueil</a></li>
             <li><a href="#">Profil</a></li>
-            <li class="btn-cta"><a href="#"><span>Back Office</span></a></li>
+            <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
           </ul>
         </div>
       </div>

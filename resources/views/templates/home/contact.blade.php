@@ -5,7 +5,7 @@
         <h2>Contact Information</h2>
         <div class="row">
           <div class="col-md-12">
-            <div class="contact-info-wrap-flex">
+            <div class="contact-info-wrap-flex justify-content-center">
               <div class="con-info">
                 <p><span><i class="icon-location-2"></i></span> 198 West 21th Street, <br> Suite 721 New York NY 10016</p>
               </div>
@@ -14,9 +14,6 @@
               </div>
               <div class="con-info">
                 <p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-              </div>
-              <div class="con-info">
-                <p><span><i class="icon-globe"></i></span> <a href="#">yourwebsite.com</a></p>
               </div>
             </div>
           </div>

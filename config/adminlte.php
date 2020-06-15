@@ -188,7 +188,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -236,34 +236,72 @@ return [
             'search' => true,
             'topnav' => true,
         ],
+
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Retour au site',
+            'url' => '/',
+            'icon' => 'fas fa-chevron-circle-left'
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Dashboard',
+            'url' => '/admin',
+            'icon' => 'fas fa-tachometer-alt'
         ],
-        ['header' => 'account_settings'],
+
+        ['header' => 'Sections'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Titres des sections',
+            'url' => '/admin/titles',
+            'icon' => 'fas fa-heading',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Carousel',
+            'url' => '/admin/hero',
+            'icon' => 'far fa-images',
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'À propos',
+            'url' => '',
+            'icon' => 'fas fa-columns',
+        ],
+        [
+            'text' => 'Équipe',
+            'url' => '',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => 'Témoignages',
+            'url' => '',
+            'icon' => 'fas fa-quote-right',
+        ],
+        [
+            'text' => 'Contact',
+            'url' => '',
+            'icon' => 'far fa-question-circle',
+        ],
+        [
+            'text' => 'Newsletter',
+            'url' => '',
+            'icon' => 'fas fa-link'
+        ],
+        [
+            'text' => 'Footer',
+            'url' => '',
+            'icon' => 'far fa-copyright',
+        ],
+
+        ['header' => 'Messages'],
+        [
+            'text' => 'Voir les messages',
+            'url' => '',
+            'icon' => 'fas fa-envelope'
+        ],
+
+        ['header' => 'Utilisateurs'],
+        [
+            'text' => 'Voir les utilisateurs inscrits',
+            'url' => '',
+            'icon' => 'fas fa-users'
         ],
     ],
 
@@ -303,6 +341,28 @@ return [
     */
 
     'plugins' => [
+        [
+            'name' => 'bs-custom-file-input',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Ekko-Lightbox',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/ekko-lightbox@5.3.0/dist/ekko-lightbox.min.js',
+                ],
+            ],
+        ],
         [
             'name' => 'Datatables',
             'active' => true,
@@ -352,13 +412,13 @@ return [
             ],
         ],
         [
-            'name' => 'Sweetalert2',
+            'name' => 'Sweetalert',
             'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@9',
                 ],
             ],
         ],
