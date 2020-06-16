@@ -418,7 +418,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@9',
+                    'location' => '//unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js',
                 ],
             ],
         ],

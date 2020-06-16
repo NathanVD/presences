@@ -1,10 +1,10 @@
-<div id="colorlib-testimony" class="testimony-img" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+<div id="testimonials" class="testimony-img" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 center-heading text-center colorlib-heading animate-box">
-        <h1 class="heading-big">{{$testimonials_title ? $testimonials_title->title : 'What are the students says'}}</h1>
-        <h2>{{$testimonials_title ? $testimonials_title->title : 'What are the students says'}}</h2>
+        <h1 class="heading-big">{{$testimonials_title ? $testimonials_title->title : 'What are the students saying'}}</h1>
+        <h2>{{$testimonials_title ? $testimonials_title->title : 'What are the students saying'}}</h2>
       </div>
     </div>
     <div class="row">

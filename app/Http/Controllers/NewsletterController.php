@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
+use App\Mail\NewsletterSubscriber as Newsletter;
+
 use App\News_Title;
+use App\Newsletter_Subscriber;
 
 Use Alert;
 
@@ -38,5 +42,27 @@ class NewsletterController extends Controller
         alert()->toast('Section modifiée !','success')->width('20rem');
 
         return redirect()->route('newsletter');
+    }
+
+    public function subscribe(Request $request)
+    {
+        $subscriber = new Newsletter_Subscriber;
+
+        $request->validate([
+        'email'=>'required|unique:newsletter__subscribers|email'
+        ]);
+
+        $subscriber->email = request('email');
+
+        $subscriber->save();
+
+        Mail::to($subscriber->email)->send(new Newsletter());
+
+        Alert::success('Vous êtes abonnés !')
+        ->animation('animate__heartBeat', 'animate__fadeOut')
+        ->autoclose(2000)
+        ->timerProgressBar();
+
+        return redirect()->to(url()->previous() . '#colorlib-subscribe');
     }
 }

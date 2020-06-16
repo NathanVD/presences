@@ -635,12 +635,11 @@ figure {
 .colorlib-trainers,
 .colorlib-classes,
 .colorlib-about,
-#colorlib-services,
 .colorlib-contact,
-#colorlib-testimony,
+#testimonials,
 .colorlib-blog,
 #colorlib-project,
-#colorlib-subscribe {
+#subscribe {
     padding: 4em 0;
     clear: both;
 }
@@ -870,7 +869,7 @@ figure {
 }
 
 // Counters
-#colorlib-counter {
+#about {
     position: relative;
     z-index: -1;
     padding: 7em 0;
@@ -1191,7 +1190,7 @@ figure {
     }
 }
 
-#colorlib-testimony {
+#testimonials {
     z-index: 0;
     padding: 5em 0 0 0;
     position: relative;
@@ -1597,7 +1596,7 @@ input[type="text"] {
 .subs-img {
     background-attachment: fixed;
 }
-#colorlib-subscribe {
+#subscribe {
     padding: 5em 0;
     position: relative;
     overflow: hidden;

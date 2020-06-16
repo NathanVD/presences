@@ -20,13 +20,13 @@
         </p>
       </div>
       <div class="col-md-2 colorlib-widget">
-        <h4>Useful Links</h4>
+        <h4>Sections</h4>
         <p>
           <ul class="colorlib-footer-links">
-            <li><a href="#"><i class="icon-check"></i> About Us</a></li>
-            <li><a href="#"><i class="icon-check"></i> Testimonials</a></li>
-            <li><a href="#"><i class="icon-check"></i> News</a></li>
-            <li><a href="#"><i class="icon-check"></i> Contact</a></li>
+            <li><a href="#about-us"><i class="icon-check"></i> À propos</a></li>
+            <li><a href="#team"><i class="icon-check"></i> Team</a></li>
+            <li><a href="#testimonials"><i class="icon-check"></i> Témoignages</a></li>
+            <li><a href="#contact"><i class="icon-check"></i> Contact</a></li>
           </ul>
         </p>
       </div>

@@ -1,4 +1,4 @@
-<div class="colorlib-contact">
+<div id="contact" class="colorlib-contact">
   <div class="container">
     <div class="row row-pb-md">
       <div class="col-md-12 animate-box">
@@ -25,23 +25,32 @@
         <h2>{{$contact_titles ? $contact_titles->title_2 : 'Nous envoyer un message'}}</h2>
       </div>
       <div class="col-md-6">
-        <form action="{{route('messages.store')}}" method="POST">
+        <form action="{{route('messages.store','#contact')}}" method="POST">
           @csrf
           <div class="row form-group">
             <div class="col-md-6">
               <!-- <label for="fname">First Name</label> -->
               <input type="text" id="fname" name="firstname" class="form-control" placeholder="Prénom">
+              @error('firstname')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
             </div>
             <div class="col-md-6">
               <!-- <label for="lname">Last Name</label> -->
               <input type="text" id="lname" name="lastname" class="form-control" placeholder="Nom">
+              @error('lastname')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
             </div>
           </div>
 
           <div class="row form-group">
             <div class="col-md-12">
               <!-- <label for="email">Email</label> -->
-              <input type="text" id="email" name="email" class="form-control" placeholder="Adresse e-mail">
+              <input type="text" id="contact-email" name="e-mail" class="form-control" placeholder="Adresse e-mail">
+              @error('e-mail')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
             </div>
           </div>
 
@@ -49,6 +58,9 @@
             <div class="col-md-12">
               <!-- <label for="subject">Subject</label> -->
               <input type="text" id="subject" name="subject" class="form-control" placeholder="Sujet de votre message">
+              @error('subject')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
             </div>
           </div>
 
@@ -56,6 +68,9 @@
             <div class="col-md-12">
               <!-- <label for="message">Message</label> -->
               <textarea name="message" id="message" name="message" cols="30" rows="10" class="form-control" placeholder="Dites-nous quelque chose"></textarea>
+            @error('message')
+              <small class="text-danger">{{ $message }}</small>
+            @enderror
             </div>
           </div>
           <div class="form-group">

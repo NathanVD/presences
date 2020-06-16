@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
+use App\Mail\MessageConfirm as Confirm;
+use App\Mail\MessageTransfer as Transfer;
+
 use App\Message;
 
 Use Alert;
@@ -28,10 +32,11 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'firstname'=>'required|string',
             'lastname'=>'required|string',
-            'email'=>'required|email',
+            'e-mail'=>'required|email',
             'subject'=>'required|string',
             'message'=>'required'
         ]);
@@ -40,21 +45,21 @@ class MessageController extends Controller
 
         $message->firstname = request('firstname');
         $message->lastname = request('lastname');
-        $message->email = request('email');
+        $message->email = request('e-mail');
         $message->object = request('subject');
         $message->message = request('message');
 
         $message->save();
 
-        // Mail::to($message->email)->send(new Contact($message));
+        Mail::to($message->email)->send(new Confirm($message));
+        Mail::to('services@school.com')->send(new Transfer($message));
 
         Alert::success('Message envoyé !')
-        ->position('top-end')
-        ->autoClose(2000)
         ->animation('animate__heartBeat', 'animate__fadeOut')
-        ->timerProgressBar();          
+        ->autoclose(2000)
+        ->timerProgressBar();        
 
-        return redirect()->back();
+        return redirect()->to(url()->previous() . '#contact');
     }
 
     /**

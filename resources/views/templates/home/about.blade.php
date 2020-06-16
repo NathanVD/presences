@@ -1,4 +1,4 @@
-<div id="colorlib-counter" class="colorlib-counters">
+<div id="about" class="colorlib-counters">
   <div class="container">
     <div class="col-md-7">
       <div class="about-desc">
@@ -6,7 +6,7 @@
         <div class="about-img-2 animate-box" style="background-image: url({{$about_images ? asset('storage/'.$about_images->img_path_2) : asset('images/about-img-1.jpg')}});"></div>
       </div>
     </div>
-    <div class="col-md-5">
+    <div id="about-us" class="col-md-5">
       <div class="row">
         <div class="col-md-12 colorlib-heading animate-box">
           <h1 class="heading-big text-nowrap">{{$about ? $about->title : 'Who are we'}}</h1>

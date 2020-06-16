@@ -59,6 +59,8 @@ Route::post('/admin/contact_map/update', 'ContactController@mapUpdate')->name('c
 // Admin Newsletter
 Route::get('/admin/newsletter', 'NewsletterController@edit')->name('newsletter');
 Route::post('/admin/newsletter/update', 'NewsletterController@update')->name('newsletter.update');
+Route::post('/newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+Route::delete('/newsletter/{email}/unsubscribe', 'NewsletterController@unsubscribe')->name('newsletter.unsubscribe');
 
 //Messages
 Route::resource('/admin/messages', 'MessageController');

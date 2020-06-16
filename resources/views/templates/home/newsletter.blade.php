@@ -1,4 +1,4 @@
-<div id="colorlib-subscribe" class="subs-img" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+<div id="subscribe" class="subs-img" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -11,10 +11,14 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="row">
           <div class="col-md-12">
-          <form class="form-inline qbstp-header-subscribe" action="#" method="POST">
+          <form class="form-inline qbstp-header-subscribe" action="{{route('newsletter.subscribe','#colorlib-subscribe')}}" method="POST">
+            @csrf
             <div class="col-three-forth">
               <div class="form-group">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Entrez votre adresse e-mail">
+                @error('email')
+                  <small class="text-danger">{{ $message }}</small>
+                @enderror
               </div>
             </div>
             <div class="col-one-third">

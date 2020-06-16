@@ -55,9 +55,9 @@
 	<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
 	<script src="{{asset('js/magnific-popup-options.js')}}"></script>
 
-	<script src="{{asset('js/main.js')}}"></script>
-	@include('sweetalert::alert')
-
-
+  <script src="{{asset('js/main.js')}}"></script>
+  
+  @include('sweetalert::alert')
+  
 	</body>
 </html>

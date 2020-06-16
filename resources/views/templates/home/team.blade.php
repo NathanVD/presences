@@ -1,4 +1,4 @@
-<div class="colorlib-trainers">
+<div id="team" class="colorlib-trainers">
   <div class="container">
     <div class="row">
       <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
