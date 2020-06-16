@@ -32,13 +32,11 @@
           </div>
 
         </div>
-
-      </div>
-
-      <div class="card-footer">
-        <div class="btn-group">
-          <button type="submit" class="btn btn-success">Valider</button>
-          <a href="{{route('hero.index')}}" class="btn btn-secondary">Annuler</a>
+        <div class="card-footer">
+          <div class="btn-group">
+            <button type="submit" class="btn btn-success">Valider</button>
+            <a href="{{route('hero.index')}}" class="btn btn-secondary">Annuler</a>
+          </div>
         </div>
       </div>
     </form>

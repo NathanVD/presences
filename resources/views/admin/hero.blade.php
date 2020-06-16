@@ -19,7 +19,7 @@
         <div class="card-body">
           <div class="form-group">
             <label for="catch">Slogan :</label>
-            <input name="catch" class="form-control{{($errors->isNotEmpty() ? $errors->first('catch') ? " is-invalid" : " is-valid" : "")}}" id="catch" value="{{$catch ? $catch->catchphrase : ''}}">
+            <input name="catch" class="form-control{{($errors->isNotEmpty() ? $errors->first('catch') ? " is-invalid" : " is-valid" : "")}}" id="catch" value="{{$catch ? $catch->catchphrase : 'You only have to know one thing'}}">
           </div>
         </div>
 

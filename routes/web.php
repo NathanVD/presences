@@ -57,10 +57,16 @@ Route::post('/admin/contact_titles/update', 'ContactController@titlesUpdate')->n
 Route::post('/admin/contact_map/update', 'ContactController@mapUpdate')->name('contact.map.update');
 
 // Admin Newsletter
-Route::get('/admin/newsletter', 'NewsletterController@edit')->name('newsletter');
+Route::get('/admin/newsletter', 'NewsletterController@index')->name('newsletter');
 Route::post('/admin/newsletter/update', 'NewsletterController@update')->name('newsletter.update');
 Route::post('/newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
-Route::delete('/newsletter/{email}/unsubscribe', 'NewsletterController@unsubscribe')->name('newsletter.unsubscribe');
+Route::delete('/newsletter/{id}/unsubscribe', 'NewsletterController@unsubscribe')->name('newsletter.unsubscribe');
+Route::post('/admin/newsletter/mail/update', 'NewsletterController@mailUpdate')->name('newsletter.mail.update');
 
 //Messages
-Route::resource('/admin/messages', 'MessageController');
+Route::post('/admin/inbox/model/update', 'MessageController@modelUpdate')->name('inbox.model.update');
+Route::resource('/admin/inbox', 'MessageController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

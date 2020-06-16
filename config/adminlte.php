@@ -250,11 +250,6 @@ return [
 
         ['header' => 'Sections'],
         [
-            'text' => 'Titres des sections',
-            'url' => '/admin/titles',
-            'icon' => 'fas fa-heading',
-        ],
-        [
             'text' => 'Carousel',
             'url' => '/admin/hero',
             'icon' => 'far fa-images',

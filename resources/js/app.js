@@ -17,3 +17,4 @@
 // // require("./magnific-popup-options");
 // // // require("../../public/js/modernizr-2.6.2.min");
 // // require("./main");
+require("../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min");

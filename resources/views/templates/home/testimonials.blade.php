@@ -9,9 +9,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div class="testimony-flex justify-content-center">
+        <div class="testimony-flex justify-content-evenly">
           @if ($testimonials && $testimonials->isNotEmpty())
-            @foreach ($testimonials as $testimonial)
+            @foreach ($testimonials->sortByDesc('created_at')->take(5) as $testimonial)
               <div class="one-fifth animate-box">
                 <span class="icon"><i class="icon-quotes-left"></i></span>
                 <div class="testimony-wrap">
@@ -90,5 +90,8 @@
         </div>
       </div>
     </div>
+    {{-- <div class="d-flex justify-content-center w-100 my-3">
+      <button class="btn btn-primary">Voir plus</button>
+    </div> --}}
   </div>
 </div>

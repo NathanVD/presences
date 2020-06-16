@@ -1,4 +1,10 @@
 var components = {
+    "packages": [
+        {
+            "name": "ekko-lightbox",
+            "main": "ekko-lightbox-built.js"
+        }
+    ],
     "baseUrl": "components"
 };
 if (typeof require !== "undefined" && require.config) {

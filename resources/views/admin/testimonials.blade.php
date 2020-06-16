@@ -66,7 +66,7 @@
               <tbody>
                 @if ($testimonials->isEmpty())
                     <tr>
-                      <td colspan="6" class="text-center text-nowrap"><b>Aucun témoignage enregistré</b></td>
+                      <td colspan="5" class="text-center text-nowrap"><b>Aucun témoignage enregistré</b></td>
                     </tr>
                 @else 
                   @foreach ($testimonials->sortByDesc('created_at') as $testimonial)
@@ -76,7 +76,7 @@
                       </td>
                       <td class="text-center text-nowrap">{{$testimonial->name}}</td>
                       <td class="text-truncate text-nowrap review">{{$testimonial->review}}</td>
-                      <td class="text-center text-nowrap">{{$testimonial->updated_at}}</td>
+                      <td class="text-center text-nowrap">{{$testimonial->updated_at->format('d M Y - H:i')}}</td>
                       <td class="text-center text-nowrap">
                         <a href="{{route('testimonials.show',$testimonial->id)}}" class="btn btn-info">
                           <i class="fas fa-eye"></i>

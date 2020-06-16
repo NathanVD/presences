@@ -8,6 +8,7 @@ use Mail;
 use App\Mail\MessageConfirm as Confirm;
 use App\Mail\MessageTransfer as Transfer;
 
+use App\Message_Confirmation_Model;
 use App\Message;
 
 Use Alert;
@@ -21,7 +22,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::all();
+        $confirm = Message_Confirmation_Model::find(1);
+        return view('admin.inbox',compact('messages','confirm'));
     }
 
     /**
@@ -37,7 +40,7 @@ class MessageController extends Controller
             'firstname'=>'required|string',
             'lastname'=>'required|string',
             'e-mail'=>'required|email',
-            'subject'=>'required|string',
+            'subject'=>'required|string|max:45',
             'message'=>'required'
         ]);
 
@@ -70,18 +73,12 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+      $message = Message::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+      $previous = Message::where('id', '<', $id)->max('id');
+      $next = Message::where('id', '>', $id)->min('id');
+
+      return view('admin.inbox_show', compact('message', 'previous', 'next'));   
     }
 
     /**
@@ -91,9 +88,33 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function modelUpdate(Request $request)
     {
-        //
+        $model = Message_Confirmation_Model::find(1);
+
+        $request->validate([
+            'title'=>'required|string',
+            'greeting'=>'required|string',
+            'intro'=>'required|string',
+            'outro'=>'required|string',
+            'farewell'=>'required|string'
+        ]);
+
+        if (!$model) {
+            $model = new Message_Confirmation_Model;
+        }
+
+        $model->title = request('title');
+        $model->greeting = request('greeting');
+        $model->intro = request('intro');
+        $model->outro = request('outro');
+        $model->farewell = request('farewell');
+
+        $model->save();
+
+        alert()->toast('Modèle mis à jour !','success')->width('20rem');
+
+        return redirect()->route('inbox.index');
     }
 
     /**
@@ -104,6 +125,10 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::find($id)->delete();
+
+        alert()->toast('Message supprimé !','error')->width('20rem');
+
+        return redirect()->back(); 
     }
 }

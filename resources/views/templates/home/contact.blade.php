@@ -25,7 +25,7 @@
         <h2>{{$contact_titles ? $contact_titles->title_2 : 'Nous envoyer un message'}}</h2>
       </div>
       <div class="col-md-6">
-        <form action="{{route('messages.store','#contact')}}" method="POST">
+        <form action="{{route('inbox.store','#contact')}}" method="POST">
           @csrf
           <div class="row form-group">
             <div class="col-md-6">

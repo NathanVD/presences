@@ -23,6 +23,7 @@
         <h4>Sections</h4>
         <p>
           <ul class="colorlib-footer-links">
+            <li><a href="/"><i class="icon-check"></i> Profil</a></li>
             <li><a href="#about-us"><i class="icon-check"></i> À propos</a></li>
             <li><a href="#team"><i class="icon-check"></i> Team</a></li>
             <li><a href="#testimonials"><i class="icon-check"></i> Témoignages</a></li>
