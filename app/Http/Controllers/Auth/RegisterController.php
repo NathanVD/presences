@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -55,6 +56,10 @@ class RegisterController extends Controller
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'max:15', 'unique:users'],
+            'img_path' => ['image'],
+            'adress_road' => ['required', 'string', 'max:255'],
+            'adress_commune' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -67,11 +72,32 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // dd($data);
-        return User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // return User::create([
+        //     'firstname' => $data['firstname'],
+        //     'lastname' => $data['lastname'],
+        //     'email' => $data['email'],
+        //     'phone' => $data['phone'],
+        //     'password' => Hash::make($data['password']),
+        //     'img_path' => $data['photo'],
+        //     'adress_road' => $data['adress_road'],
+        //     'adress_commune' => $data['adress_commune'],
+        // ]);
+        $roles = Role::all();
+        $user = new User;
+
+        $user->firstname = $data['firstname'];
+        $user->lastname = $data['lastname'];
+        $user->email = $data['email'];
+        $user->phone = $data['phone'];
+        $user->password = Hash::make($data['password']);
+        $user->img_path = request('photo')->store('img');
+        $user->adress_road = $data['adress_road'];
+        $user->adress_commune = $data['adress_commune'];
+
+        $user->save();
+
+        $user->roles()->attach($roles->where('name','Membre')->first());
+
+        return $user;
     }
 }

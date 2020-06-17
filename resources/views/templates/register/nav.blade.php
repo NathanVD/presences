@@ -7,8 +7,8 @@
         </div>
         <div class="col-md-10 text-right menu-1">
           <ul>
-            <li class="active has-dropdown">
-              <a style="cursor: pointer;">Accueil</a>
+            <li class="has-dropdown">
+              <a href="/">Accueil</a>
               <ul class="dropdown" style="display: none;">
                 <li><a href="#about-us">À propos</a></li>
                 <li><a href="#team">Équipe</a></li>
@@ -30,11 +30,12 @@
                   </li>
                 </ul>
               </li>
+
+              <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
             @else
               <li><a data-toggle="modal" data-target="#loginModal" style="cursor: pointer;">Se connecter</a></li>
-              <li><a href="/register">S'enregistrer</a></li>
+              <li class="active"><a style="cursor: pointer;">S'enregistrer</a></li>
             @endif
-            <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
           </ul>
         </div>
       </div>

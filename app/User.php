@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname', 'email', 'password',
+        'firstname','lastname','email','password','img_path','phone','adress_road',
+        'adress_commune','domain_id','domain_type','confirmed'
     ];
 
     /**
@@ -33,7 +34,54 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    /**
+     * The roles of the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    /**
+     * Get the attendances from the user.
+     */
+    public function attendances()
+    {
+        return $this->hasMany('App\Attendance');
+    }
+
+    /**
+     * Get the owning subject model.
+     */
+    public function subject()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     * Get the classroom associated with the user.
+     */
+    public function classroom()
+    {
+        return $this->belongsTo('App\Classroom');
+    }
+    /**
+     * Verify the roles of the user.
+     */
+    public function isAdmin() {
+        return $this->roles()->where('name', 'Administrateur')->exists();
+    }
+    public function isWebmaster() {
+        return $this->roles()->where('name', 'Webmaster')->exists();
+    }
+    public function isProf() {
+        return $this->roles()->where('name', 'Professeur')->exists();
+    }
+    public function isStudent() {
+        return $this->roles()->where('name', 'Étudiant')->exists();
+    }
 }

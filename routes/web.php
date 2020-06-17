@@ -33,6 +33,8 @@ Route::get('/', function () {
 });
 
 
+
+
 // Admin dashboard
 Route::get('/admin', 'AdminController@index')->name('admin');
 
@@ -68,5 +70,9 @@ Route::post('/admin/inbox/model/update', 'MessageController@modelUpdate')->name(
 Route::resource('/admin/inbox', 'MessageController');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/register', function () {
+//     $contact = contact::find(1);
+    
+//     return view('register',compact('contact'));
+// });
+// Route::get('/home', 'HomeController@index')->name('home');

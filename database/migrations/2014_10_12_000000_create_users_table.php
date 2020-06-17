@@ -21,13 +21,14 @@ class CreateUsersTable extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            // $table->string('img_path');
-            // $table->string('phone');
-            // $table->string('adress_road');
-            // $table->string('adress_commune');
-            // $table->string('domain_id');
-            // $table->string('domain_type');
-            // $table->string('role_id');
+            $table->string('img_path')->default("/img/molengeek.png");
+            $table->string('phone')->unique()->nullable();
+            $table->string('adress_road')->nullable();
+            $table->string('adress_commune')->nullable();
+            $table->integer('domain_id')->nullable();
+            $table->string('domain_type')->nullable();
+            $table->foreignId('classroom_id')->nullable()->constrained()->onDelete('set null')->onUpdate('cascade');
+            $table->boolean('confirmed')->default(0);
             $table->timestamps();
         });
     }
@@ -39,6 +40,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users', function (Blueprint $table) {
+            $table->dropForeign(['classroom_id']);
+            $table->dropColumn(['classroom_id']);
+        });
     }
 }
