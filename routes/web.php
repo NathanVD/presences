@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
 use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;use App\News_Title;
+use App\Background;use App\User;
 
 
 /*
@@ -28,15 +29,26 @@ Route::get('/', function () {
     $contact_titles = Contact_Title::find(1);
     $map = Contact_Map::find(1);
     $newsletter = News_Title::find(1);
+    $background = Background::find(1);
+    $teachers_count = User::whereHas(
+        'roles', function($q){
+            $q->where('name', 'Professeur');
+        }
+    )->get()->count();
+
     return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials',
-    'contact','contact_titles','map','newsletter'));
-});
+    'contact','contact_titles','map','newsletter','background','teachers_count'));
+})->name('home');
 
 
 
 
 // Admin dashboard
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+// Admin BG
+Route::get('/admin/background', 'BackgroundController@edit')->name('background');
+Route::post('/admin/background/update', 'BackgroundController@update')->name('background.update');
 
 // Admin Hero
 Route::post('/admin/hero/catchphrase/update', 'HeroController@catchUpdate')->name('hero.catch.update');
@@ -70,9 +82,12 @@ Route::post('/admin/inbox/model/update', 'MessageController@modelUpdate')->name(
 Route::resource('/admin/inbox', 'MessageController');
 
 Auth::routes();
+
+
 // Route::get('/register', function () {
 //     $contact = contact::find(1);
-    
-//     return view('register',compact('contact'));
+//         $background = Background::find(1);
+
+//     return view('auth.register',compact('background'));
 // });
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -21,7 +21,7 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="1539" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '1539'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_1 : 'Cours'}}</span>
             </div>
           </div>
@@ -29,15 +29,15 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="3653" data-speed="5000" data-refresh-interval="50"></span>
-              <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_2 : 'Membres'}}</span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '3653'}}" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_2 : 'Matières'}}</span>
             </div>
           </div>
         </div>
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="2300" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '2300'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_3 : 'Étudiants'}}</span>
             </div>
           </div>
@@ -45,7 +45,7 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="200" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '200'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_4 : 'Professeurs'}}</span>
             </div>
           </div>

@@ -2,6 +2,7 @@
   <div class="container">
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
       @csrf
+      @method('post')
       <div class="row form-group">
         <div class="col-md-6">
           <input type="text" id="fname" name="firstname" class="form-control" placeholder="Prénom" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>

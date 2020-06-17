@@ -2,7 +2,7 @@
 
 @section('content')
 
-  {{-- @include('templates.preloader') --}}
+  @include('templates.preloader')
 
   @include('templates.home.nav')
 

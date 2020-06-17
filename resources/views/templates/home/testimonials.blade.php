@@ -1,4 +1,4 @@
-<div id="testimonials" class="testimony-img" style="background-image: url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+<div id="testimonials" class="testimony-img" style="background-image: url({{$background ? asset('storage/'.$background->img_path) : 'images/img_bg_2.jpg'}});" data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
   <div class="container-fluid">
     <div class="row">
