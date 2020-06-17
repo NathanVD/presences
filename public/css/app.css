@@ -15447,3 +15447,10 @@ input[type=text] {
   justify-content: space-evenly;
 }
 
+.profile-user-img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+

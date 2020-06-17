@@ -25,7 +25,7 @@ Route::get('/', function () {
     $about_images = About_Images::find(1);
     $testimonials_title = Testimonials_Title::find(1);
     $testimonials = Testimonial::all();
-    $contact = contact::find(1);
+    $contact = Contact::find(1);
     $contact_titles = Contact_Title::find(1);
     $map = Contact_Map::find(1);
     $newsletter = News_Title::find(1);
@@ -40,7 +40,13 @@ Route::get('/', function () {
     'contact','contact_titles','map','newsletter','background','teachers_count'));
 })->name('home');
 
+Route::get('/profile', function () {
 
+    $contact = contact::find(1);
+    $background = Background::find(1);
+
+    return view('profile',compact('contact','background'));
+})->name('profile');
 
 
 // Admin dashboard

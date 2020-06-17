@@ -4,19 +4,11 @@
 
   @include('templates.preloader')
 
-  @include('templates.home.nav')
+  @include('templates.profile.nav')
 
-  @include('templates.home.hero')
+  @include('templates.profile.hero')
 
-  @include('templates.home.about')
-  
-  @include('templates.home.team')
-
-  @include('templates.home.testimonials')
-
-  @include('templates.home.contact')
-
-  @include('templates.home.newsletter')
+  @include('templates.profile.body')
 
   @include('templates.footer')
 
