@@ -2,24 +2,43 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-        <h1 class="heading-big">Our Instructor</h1>
-        <h2>Our Instructor</h2>
+        <h1 class="heading-big">{{$team_title ? $team_title : 'Our Instructor'}}</h1>
+        <h2>{{$team_title ? $team_title : 'Our Instructor'}}</h2>
       </div>
     </div>
     <div class="row justify-content-between">
 
       @if ($team && $team->isNotEmpty())
-        @foreach ($team->take(3) as $member)
-          <div class="col-md-3 col-sm-3 animate-box">
-            <div class="trainers-entry">
-              <div class="desc">
-                <h3>{{$member->firstname.' '.$member->lastname}}</h3>
-                <span>Professeur</span>
-              </div>
-              <div class="trainer-img" style="background-image: url({{asset('storage/'.$member->img_path)}})"></div>
+        <div class="col-md-3 col-sm-3 animate-box">
+          <div class="trainers-entry">
+            <div class="desc">
+              <h3>{{$team_1->firstname.' '.$team_1->lastname}}</h3>
+              <span>Professeur</span>
             </div>
+            <div class="trainer-img" style="background-image: url({{asset('storage/'.$team_1->img_path)}})"></div>
           </div>
-        @endforeach
+        </div>
+
+        <div class="col-md-3 col-sm-3 animate-box">
+          <div class="trainers-entry">
+            <div class="desc">
+              <h3>{{$starred->firstname.' '.$starred->lastname}}</h3>
+              <span>Professeur</span>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <div class="trainer-img" style="background-image: url({{asset('storage/'.$starred->img_path)}})"></div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-3 animate-box">
+          <div class="trainers-entry">
+            <div class="desc">
+              <h3>{{$team_2->firstname.' '.$team_2->lastname}}</h3>
+              <span>Professeur</span>
+            </div>
+            <div class="trainer-img" style="background-image: url({{asset('storage/'.$team_2->img_path)}})"></div>
+          </div>
+        </div>
       @else
         <div class="col-md-3 col-sm-3 animate-box">
           <div class="trainers-entry">

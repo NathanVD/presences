@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0",
         "flexslider": "^2.7.2",
         "jquery": "^3.5.1",
         "jquery-countto": "^1.2.0",

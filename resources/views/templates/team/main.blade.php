@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 colorlib-heading center-heading text-center animate-box">
-        <h1 class="heading-big">Our Instructor</h1>
-        <h2>Our Instructor</h2>
+        <h1 class="heading-big">{{$team_title ? $team_title : 'Our Instructor'}}</h1>
+        <h2>{{$team_title ? $team_title : 'Our Instructor'}}</h2>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -14,7 +14,10 @@
             <div class="trainers-entry">
               <div class="desc">
                 <h3>{{$teacher->firstname.' '.$teacher->lastname}}</h3>
-                <span>Professeur</span>
+                <span>Professeur</span> 
+                @if ($teacher->starred)
+                  <i class="fas fa-star text-warning"></i>
+                @endif
               </div>
               <div class="trainer-img mb-2" style="background-image: url({{asset('storage/'.$teacher->img_path)}})"></div>
               <p class="text-nowrap m-0"><a class="text-muted" href="tel://{{$teacher->phone}}"><i class="icon-phone"></i> {{$teacher->phone}}</a></p>

@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Attendance extends Model
+class Starred extends Model
 {
     /**
-     * Get the user linked to the attendance.
+     * The principal user.
      */
-    public function student()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }

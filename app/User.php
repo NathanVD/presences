@@ -47,6 +47,14 @@ class User extends Authenticatable
     }
 
     /**
+     * The principal user.
+     */
+    public function starred()
+    {
+        return $this->hasOne('App\Starred');
+    }
+
+    /**
      * Get the attendances from the user.
      */
     public function attendances()

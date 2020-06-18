@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
 use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;use App\News_Title;
-use App\Background;use App\User;use App\Teach;use App\Study;
+use App\Background;use App\User;use App\Teach;use App\Study;use App\Team_Title;use App\Starred;use App\Role;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -43,15 +43,19 @@ Route::get('/', function () {
     )->get()->count();
     $teach_count = Teach::all()->count();
     $study_count = Study::all()->count();
+    $team_title = Team_Title::find(1)->title;
     $team = User::whereHas(
         'roles', function($q){
             $q->where('name', 'Professeur');
         }
     )->get();
+    $starred = Starred::find(1)->user;
+    $team_1 = $team->whereNotIn('id',$starred->id)->shuffle()->first();
+    $team_2 = $team->whereNotIn('id',[$starred->id,$team_1->id])->shuffle()->first();
 
     return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials',
     'contact','contact_titles','map','newsletter','background','teachers_count','students_count','teach_count','study_count',
-    'team',));
+    'team','team_1','team_2','team_title','starred'));
 })->name('home');
 
 Route::get('/profile', function () {
@@ -72,8 +76,9 @@ Route::get('/team', function () {
             $q->where('name', 'Professeur');
         }
     )->get();
+    $team_title = Team_Title::find(1)->title;
 
-    return view('team',compact('contact','background','teachers'));
+    return view('team',compact('contact','background','teachers','team_title'));
 })->name('team');
 
 // Admin dashboard
@@ -109,6 +114,12 @@ Route::post('/admin/newsletter/update', 'NewsletterController@update')->name('ne
 Route::post('/newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 Route::delete('/newsletter/{id}/unsubscribe', 'NewsletterController@unsubscribe')->name('newsletter.unsubscribe');
 Route::post('/admin/newsletter/mail/update', 'NewsletterController@mailUpdate')->name('newsletter.mail.update');
+
+// Admin Team
+Route::get('/admin/team', 'TeamController@index')->name('admin.team');
+Route::post('/admin/team_title/update', 'TeamController@titleUpdate')->name('team.title.update');
+Route::post('/admin/team/{id}/starred_member/update', 'TeamController@starredUpdate')->name('team.starred_member.update');
+Route::delete('/admin/team/starred_member/remove', 'TeamController@starredRemove')->name('team.starred_member.remove');
 
 //Messages
 Route::post('/admin/inbox/model/update', 'MessageController@modelUpdate')->name('inbox.model.update');
