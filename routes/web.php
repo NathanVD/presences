@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
 use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;use App\News_Title;
-use App\Background;use App\User;
+use App\Background;use App\User;use App\Teach;use App\Study;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -36,9 +36,22 @@ Route::get('/', function () {
             $q->where('name', 'Professeur');
         }
     )->get()->count();
+    $students_count = User::whereHas(
+        'roles', function($q){
+            $q->where('name', 'Étudiant');
+        }
+    )->get()->count();
+    $teach_count = Teach::all()->count();
+    $study_count = Study::all()->count();
+    $team = User::whereHas(
+        'roles', function($q){
+            $q->where('name', 'Professeur');
+        }
+    )->get();
 
     return view('home',compact('catch','slides','about','about_counters','about_images','testimonials_title','testimonials',
-    'contact','contact_titles','map','newsletter','background','teachers_count'));
+    'contact','contact_titles','map','newsletter','background','teachers_count','students_count','teach_count','study_count',
+    'team',));
 })->name('home');
 
 Route::get('/profile', function () {
@@ -50,6 +63,18 @@ Route::get('/profile', function () {
     return view('templates.profile.main',compact('user','contact','background'));
 })->name('profile')->middleware('auth');
 
+Route::get('/team', function () {
+
+    $contact = contact::find(1);
+    $background = Background::find(1);
+    $teachers = User::whereHas(
+        'roles', function($q){
+            $q->where('name', 'Professeur');
+        }
+    )->get();
+
+    return view('team',compact('contact','background','teachers'));
+})->name('team');
 
 // Admin dashboard
 Route::get('/admin', 'AdminController@index')->name('admin');

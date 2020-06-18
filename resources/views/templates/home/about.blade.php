@@ -21,7 +21,7 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '1539'}}" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$study_count != 0 ? $study_count : '1539'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_1 : 'Cours'}}</span>
             </div>
           </div>
@@ -29,7 +29,7 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '3653'}}" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teach_count != 0 ? $teach_count : '3653'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_2 : 'Matières'}}</span>
             </div>
           </div>
@@ -37,7 +37,7 @@
         <div class="col-md-6 col-sm-6 animate-box">
           <div class="counter-entry">
             <div class="desc">
-              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$teachers_count != 0 ? $teachers_count : '2300'}}" data-speed="5000" data-refresh-interval="50"></span>
+              <span class="colorlib-counter js-counter" data-from="0" data-to="{{$students_count != 0 ? $students_count : '2300'}}" data-speed="5000" data-refresh-interval="50"></span>
               <span class="colorlib-counter-label">{{$about_counters ? $about_counters->counter_3 : 'Étudiants'}}</span>
             </div>
           </div>

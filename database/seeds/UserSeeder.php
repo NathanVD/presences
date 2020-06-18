@@ -38,12 +38,20 @@ class UserSeeder extends Seeder
         $admin = User::where('email','admin@school.com')->first();
         $admin->roles()->attach($roles->where('name','Administrateur')->first());
 
-        // factory(User::class,25)->create();
+        factory(User::class,10)->states('teacher')->create();
+        factory(User::class,20)->states('student')->create();
 
-        // $little_roles = $roles->where('name','Member');
-        // App\User::all()->each(function ($user) use ($little_roles) { 
-        //     $user->roles()->attach($little_roles->pluck('id')->toArray()); 
-        // });
+        $teachers = User::all()->where('domain_type','App\Teach');
+        $students = User::all()->where('domain_type','App\Study');
+
+        foreach($teachers as $teacher){
+            $teacher->roles()->attach($roles->where('name','Professeur')->first());
+        };
+
+        foreach($students as $student){
+            $student->roles()->attach($roles->where('name','Étudiant')->first());
+        };
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

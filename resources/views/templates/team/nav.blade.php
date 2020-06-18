@@ -17,12 +17,12 @@
                 <li><a href="{{route('home').'#subscribe'}}">Newsletter</a></li>
               </ul>
             </li>
-            <li><a href="{{route('team')}}">Équipe</a></li>
+            <li><a href="#">Équipe</a></li>
             @if (Auth::check())
               <li class="active has-dropdown">
                 <a style="cursor: pointer;">{{Auth::user()->firstname}}</a>
                 <ul class="dropdown" style="display: none;">
-                  <li><a href="#">Profil</a></li>
+                  <li><a href="{{route('profile')}}">Profil</a></li>
                   <li>
                     <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                       Se déconnecter

@@ -17,6 +17,8 @@
                 <li><a href="{{route('home').'#subscribe'}}">Newsletter</a></li>
               </ul>
             </li>
+            <li><a href="{{route('team')}}">Équipe</a></li>
+
             @if (Auth::check())
               <li class="has-dropdown">
                 <a style="cursor: pointer;">{{Auth::user()->firstname}}</a>

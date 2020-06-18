@@ -16,24 +16,13 @@ class RoleSeeder extends Seeder
         Role::truncate();
 
         DB::table('roles')->insert([
-            'name' => 'Administrateur',
+            ['name' => 'Administrateur',],
+            ['name' => 'Webmaster',],
+            ['name' => 'Professeur',],
+            ['name' => 'Étudiant',],
+            ['name' => 'Membre',],
         ]);
 
-        DB::table('roles')->insert([
-            'name' => 'Webmaster',
-        ]);
-
-        DB::table('roles')->insert([
-            'name' => 'Professeur',
-        ]);
-
-        DB::table('roles')->insert([
-            'name' => 'Étudiant',
-        ]);
-
-        DB::table('roles')->insert([
-            'name' => 'Membre',
-        ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

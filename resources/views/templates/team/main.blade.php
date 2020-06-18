@@ -6,17 +6,19 @@
         <h2>Our Instructor</h2>
       </div>
     </div>
-    <div class="row justify-content-between">
+    <div class="row justify-content-center">
 
-      @if ($team && $team->isNotEmpty())
-        @foreach ($team->take(3) as $member)
-          <div class="col-md-3 col-sm-3 animate-box">
+      @if ($teachers && $teachers->isNotEmpty())
+        @foreach ($teachers as $teacher)
+          <div class="col-md-3 col-sm-3 animate-box mb-3">
             <div class="trainers-entry">
               <div class="desc">
-                <h3>{{$member->firstname.' '.$member->lastname}}</h3>
+                <h3>{{$teacher->firstname.' '.$teacher->lastname}}</h3>
                 <span>Professeur</span>
               </div>
-              <div class="trainer-img" style="background-image: url({{asset('storage/'.$member->img_path)}})"></div>
+              <div class="trainer-img mb-2" style="background-image: url({{asset('storage/'.$teacher->img_path)}})"></div>
+              <p class="text-nowrap m-0"><a class="text-muted" href="tel://{{$teacher->phone}}"><i class="icon-phone"></i> {{$teacher->phone}}</a></p>
+              <p class="text-nowrap"><a class="text-muted" href="mailto:{{$teacher->email}}"><i class="icon-envelope"></i> {{$teacher->email}}</a></p>
             </div>
           </div>
         @endforeach
