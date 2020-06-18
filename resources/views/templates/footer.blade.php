@@ -4,12 +4,12 @@
       <div class="col-md-3 colorlib-widget">
         <h4>Contact Info</h4>
         <ul class="colorlib-footer-links">
-          <li>{{$contact ?? '' ? $contact ?? ''->adress_1 : 'Place de la Minoterie, 10'}} <br> {{$contact ?? '' ? $contact ?? ''->adress_2 : '1080 Molenbeek-Saint-Jean'}}</li>
-          <li><a href="tel://{{$contact ?? '' ? $contact ?? ''->phone : '+32 412 34 56 78'}}"><i class="icon-phone"></i> {{$contact ?? '' ? $contact ?? ''->phone : '+32 412 34 56 78'}}</a></li>
-          <li><a href="mailto:{{$contact ?? '' ? $contact ?? ''->email : 'nathan@molengeek.com'}}"><i class="icon-envelope"></i> {{$contact ?? '' ? $contact ?? ''->email : 'nathan@molengeek.com'}}</a></li>
+          <li>{{$contact ? $contact->adress_1 : 'Place de la Minoterie, 10'}} <br> {{$contact ? $contact->adress_2 : '1080 Molenbeek-Saint-Jean'}}</li>
+          <li><a href="tel://{{$contact ? $contact->phone : '+32 412 34 56 78'}}"><i class="icon-phone"></i> {{$contact ? $contact->phone : '+32 412 34 56 78'}}</a></li>
+          <li><a href="mailto:{{$contact ? $contact->email : 'nathan@molengeek.com'}}"><i class="icon-envelope"></i> {{$contact ? $contact->email : 'nathan@molengeek.com'}}</a></li>
         </ul>
       </div>
-      <div class="col-md-2 colorlib-widget">
+      <div class="col-md-3 colorlib-widget">
         <h4>Programs</h4>
         <p>
           <ul class="colorlib-footer-links">
@@ -19,7 +19,7 @@
           </ul>
         </p>
       </div>
-      <div class="col-md-2 colorlib-widget">
+      <div class="col-md-3 colorlib-widget">
         <h4>Sections</h4>
         <p>
           <ul class="colorlib-footer-links">
@@ -32,7 +32,7 @@
         </p>
       </div>
 
-      <div class="col-md-2 colorlib-widget">
+      <div class="col-md-3 colorlib-widget">
         <h4>Support</h4>
         <p>
           <ul class="colorlib-footer-links">
@@ -43,17 +43,6 @@
         </p>
       </div>
 
-      <div class="col-md-3 colorlib-widget">
-        <h4>Recent Post</h4>
-        <div class="f-blog">
-          <a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);">
-          </a>
-          <div class="desc">
-            <h2><a href="blog.html">Creating Mobile Apps</a></h2>
-            <p class="admin"><span>18 April 2018</span></p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="copy">

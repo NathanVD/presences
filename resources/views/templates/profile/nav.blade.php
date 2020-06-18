@@ -31,7 +31,9 @@
                 </ul>
               </li>
 
-              <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
+              @if (Auth::user()->isWebmaster())
+                <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
+              @endif
             @endif
           </ul>
         </div>

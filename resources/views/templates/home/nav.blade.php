@@ -30,11 +30,19 @@
                   </li>
                 </ul>
               </li>
+              @if (Auth::user()->isWebmaster())
+                <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
+              @endif
             @else
-              <li><a data-toggle="modal" data-target="#loginModal" style="cursor: pointer;">Se connecter</a></li>
-              <li><a href="/register">S'enregistrer</a></li>
+              <li><a data-toggle="modal" data-target="#loginModal" style="cursor: pointer;">Connexion</a></li>
+              <li class="has-dropdown">
+                <a style="cursor: pointer;">Inscription</a>
+                <ul class="dropdown" style="display: none;">
+                  <li><a href="{{route('get.teacher.register')}}">Professeur</a></li>
+                  <li><a href="{{route('get.student.register')}}">Étudiant</a></li>
+                </ul>
+              </li>
             @endif
-            <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
           </ul>
         </div>
       </div>

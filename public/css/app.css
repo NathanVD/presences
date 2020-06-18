@@ -15454,3 +15454,7 @@ input[type=text] {
      object-fit: cover;
 }
 
+#profile-body {
+  margin-bottom: 5rem;
+}
+

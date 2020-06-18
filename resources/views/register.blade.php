@@ -4,11 +4,11 @@
 
   @include('templates.preloader')
 
-  @include('templates.profile.nav')
+  @include('templates.register.nav')
 
-  @include('templates.profile.hero')
+  @include('templates.register.hero')
 
-  @yield('body')
+  @yield('form')
 
   @include('templates.footer')
 

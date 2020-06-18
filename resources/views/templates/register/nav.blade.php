@@ -34,7 +34,13 @@
               <li class="btn-cta"><a href="/admin"><span>Back Office</span></a></li>
             @else
               <li><a data-toggle="modal" data-target="#loginModal" style="cursor: pointer;">Se connecter</a></li>
-              <li class="active"><a style="cursor: pointer;">S'enregistrer</a></li>
+              <li class="has-dropdown">
+                <a style="cursor: pointer;">Inscription</a>
+                <ul class="dropdown" style="display: none;">
+                  <li><a href="{{route('get.teacher.register')}}">Professeur</a></li>
+                  <li><a href="{{route('get.student.register')}}">Étudiant</a></li>
+                </ul>
+              </li>
             @endif
           </ul>
         </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Hero_Catch; use App\Hero; use App\About; use App\About_Counter; use App\About_Images;use App\Testimonial;
 use App\Testimonials_Title;use App\Contact;use App\Contact_Title;use App\Contact_Map;use App\News_Title;
 use App\Background;use App\User;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -42,11 +43,12 @@ Route::get('/', function () {
 
 Route::get('/profile', function () {
 
+    $user = Auth::user();
     $contact = contact::find(1);
     $background = Background::find(1);
 
-    return view('profile',compact('contact','background'));
-})->name('profile');
+    return view('templates.profile.main',compact('user','contact','background'));
+})->name('profile')->middleware('auth');
 
 
 // Admin dashboard
@@ -87,7 +89,16 @@ Route::post('/admin/newsletter/mail/update', 'NewsletterController@mailUpdate')-
 Route::post('/admin/inbox/model/update', 'MessageController@modelUpdate')->name('inbox.model.update');
 Route::resource('/admin/inbox', 'MessageController');
 
+//Auth
 Auth::routes();
+
+//Users
+Route::get('/user/teacher/register_form', 'UserController@registerTeacherForm')->name('get.teacher.register');
+Route::get('/user/student/register_form', 'UserController@registerStudentForm')->name('get.student.register');
+Route::post('/user/teacher/register', 'UserController@registerTeacher')->name('teacher.register');
+Route::post('/user/student/register', 'UserController@registerStudent')->name('student.register');
+Route::post('/user/{id}/password/update', 'UserController@passwordUpdate')->name('password.update');
+Route::resource('/user', 'UserController');
 
 
 // Route::get('/register', function () {

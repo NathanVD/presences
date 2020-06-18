@@ -55,9 +55,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the owning subject model.
+     * Get the owning domain model.
      */
-    public function subject()
+    public function domain()
     {
         return $this->morphTo();
     }
@@ -76,12 +76,12 @@ class User extends Authenticatable
         return $this->roles()->where('name', 'Administrateur')->exists();
     }
     public function isWebmaster() {
-        return $this->roles()->where('name', 'Webmaster')->exists();
+        return ($this->roles()->where('name', 'Administrateur')->exists() || $this->roles()->where('name', 'Webmaster')->exists());
     }
     public function isProf() {
-        return $this->roles()->where('name', 'Professeur')->exists();
+        return ($this->roles()->where('name', 'Administrateur')->exists() || $this->roles()->where('name', 'Webmaster')->exists() || $this->roles()->where('name', 'Professeur')->exists());
     }
     public function isStudent() {
-        return $this->roles()->where('name', 'Étudiant')->exists();
+        return ($this->roles()->where('name', 'Administrateur')->exists() || $this->roles()->where('name', 'Webmaster')->exists() || $this->roles()->where('name', 'Professeur')->exists() || $this->roles()->where('name', 'Étudiant')->exists());
     }
 }
